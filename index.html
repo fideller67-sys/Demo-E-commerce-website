@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ShopEase</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="cart.html" class="btn btn-outline btn-sm">
+                    Cart <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="btn btn-primary btn-sm">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Elevate Your Lifestyle</h1>
+                    <p>Experience the future of shopping. Premium brands, exclusive deals, and express delivery at your fingertips.</p>
+                    <div class="flex gap-sm">
+                        <a href="#flash-sales" class="btn btn-primary">View Flash Sales</a>
+                        <a href="products.html" class="btn btn-outline">Explore Brands</a>
+                    </div>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" alt="Fashion Model" class="hero-image">
+        </section>
+
+        <!-- Categories Grid -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="grid grid-cols-4">
+                    <a href="products.html?cat=electronics" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1498049860654-af1a5c5668ba?q=80&w=2069&auto=format&fit=crop" alt="Electronics">
+                        <div class="category-overlay">
+                            <h3>Electronics</h3>
+                        </div>
+                    </a>
+                    <a href="products.html?cat=fashion" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop" alt="Fashion">
+                        <div class="category-overlay">
+                            <h3>Fashion</h3>
+                        </div>
+                    </a>
+                    <a href="products.html?cat=home" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?q=80&w=2074&auto=format&fit=crop" alt="Home & Living">
+                        <div class="category-overlay">
+                            <h3>Home & Living</h3>
+                        </div>
+                    </a>
+                    <a href="products.html?cat=beauty" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?q=80&w=2066&auto=format&fit=crop" alt="Beauty">
+                        <div class="category-overlay">
+                            <h3>Beauty</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sales (Jumia Style) -->
+        <section id="flash-sales" class="flash-sales">
+            <div class="container">
+                <div class="flash-header flex justify-between items-center">
+                    <div class="flex items-center gap-md">
+                        <h2 class="text-white margin-0">⚡ Flash Sales</h2>
+                        <div class="countdown">Ends in: 02:45:30</div>
+                    </div>
+                    <a href="products.html" class="text-white text-sm">See All ></a>
+                </div>
+                <div class="grid grid-cols-4" style="margin-top: var(--spacing-md);">
+                    <!-- Flash Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <span class="badge badge-sale">-40%</span>
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop" alt="Headphones" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product-detail.html">Premium Headphones</a></h3>
+                            <div class="flex gap-sm items-center">
+                                <span class="product-price text-danger">$179.99</span>
+                                <span class="price-original text-muted text-sm text-through">$299.99</span>
+                            </div>
+                            <div class="stock-bar">
+                                <div class="stock-fill" style="width: 80%"></div>
+                            </div>
+                            <div class="text-xs text-muted">12 items left</div>
+                        </div>
+                    </div>
+
+                    <!-- Flash Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <span class="badge badge-sale">-25%</span>
+                            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=1964&auto=format&fit=crop" alt="Sneakers" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product-detail.html">Urban Sneakers</a></h3>
+                            <div class="flex gap-sm items-center">
+                                <span class="product-price text-danger">$75.00</span>
+                                <span class="price-original text-muted text-sm text-through">$100.00</span>
+                            </div>
+                             <div class="stock-bar">
+                                <div class="stock-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="text-xs text-muted">45 sold</div>
+                        </div>
+                    </div>
+
+                    <!-- Flash Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <span class="badge badge-sale">-50%</span>
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=1964&auto=format&fit=crop" alt="Smart Watch" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product-detail.html">Fitness Tracker</a></h3>
+                            <div class="flex gap-sm items-center">
+                                <span class="product-price text-danger">$49.50</span>
+                                <span class="price-original text-muted text-sm text-through">$99.00</span>
+                            </div>
+                             <div class="stock-bar">
+                                <div class="stock-fill" style="width: 90%"></div>
+                            </div>
+                            <div class="text-xs text-muted">Almost gone!</div>
+                        </div>
+                    </div>
+
+                    <!-- Flash Product 4 -->
+                    <div class="product-card">
+                         <div class="product-image-wrapper">
+                            <span class="badge badge-sale">-30%</span>
+                            <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?q=80&w=2074&auto=format&fit=crop" alt="Camera" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product-detail.html">Vlog Camera</a></h3>
+                            <div class="flex gap-sm items-center">
+                                <span class="product-price text-danger">$420.00</span>
+                                <span class="price-original text-muted text-sm text-through">$600.00</span>
+                            </div>
+                             <div class="stock-bar">
+                                <div class="stock-fill" style="width: 30%"></div>
+                            </div>
+                            <div class="text-xs text-muted">Recently viewed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Benefits -->
+        <section class="benefits bg-surface">
+            <div class="container">
+                <div class="grid grid-cols-4">
+                    <div class="benefit-item text-center">
+                        <div class="benefit-icon">🚀</div>
+                        <h4>Express Delivery</h4>
+                        <p class="text-sm text-muted">Fast shipping across the country</p>
+                    </div>
+                    <div class="benefit-item text-center">
+                        <div class="benefit-icon">🛡️</div>
+                        <h4>Secure Payment</h4>
+                        <p class="text-sm text-muted">100% secure payment methods</p>
+                    </div>
+                    <div class="benefit-item text-center">
+                        <div class="benefit-icon">↩️</div>
+                        <h4>Easy Returns</h4>
+                        <p class="text-sm text-muted">7-day return policy</p>
+                    </div>
+                    <div class="benefit-item text-center">
+                        <div class="benefit-icon">🎧</div>
+                        <h4>24/7 Support</h4>
+                        <p class="text-sm text-muted">Always here to help you</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="grid grid-cols-4">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <span class="badge badge-new" style="position: absolute; top: 10px; left: 10px;">New</span>
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Classic Watch" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Accessories</div>
+                            <h3 class="product-title"><a href="product-detail.html">Classic Watch</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$129.00</span>
+                                <div class="product-rating">★★★★★ (12)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Running Shoes" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Footwear</div>
+                            <h3 class="product-title"><a href="product-detail.html">Running Shoes</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$89.00</span>
+                                <div class="product-rating">★★★★☆ (8)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <span class="badge badge-sale" style="position: absolute; top: 10px; left: 10px; z-index: 1;">Sale</span>
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" alt="Leather Jacket" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Outerwear</div>
+                            <h3 class="product-title"><a href="product-detail.html">Leather Jacket</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$199.00</span>
+                                <div class="product-rating">★★★★★ (24)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1589366181703-a18544d6731e?q=80&w=2070&auto=format&fit=crop" alt="Sunglasses" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Accessories</div>
+                            <h3 class="product-title"><a href="product-detail.html">Aviator Sunglasses</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$149.00</span>
+                                <div class="product-rating">★★★★☆ (15)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: var(--spacing-xl);">
+                    <a href="products.html" class="btn btn-outline">View All Products</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>ShopEase</h3>
+                <p>Premium products, effortless shopping.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopEase. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

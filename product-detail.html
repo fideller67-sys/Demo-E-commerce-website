@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Classic Watch - ShopEase</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ShopEase</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link active">Shop</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="cart.html" class="btn btn-outline btn-sm">
+                    Cart <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="btn btn-primary btn-sm">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-surface" style="padding: var(--spacing-md) 0;">
+        <div class="container">
+            <p class="text-muted text-sm"><a href="index.html">Home</a> / <a href="products.html">Shop</a> / <a href="products.html">Accessories</a> / Classic Watch</p>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section style="padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <div class="grid grid-cols-2" style="gap: var(--spacing-xl);">
+                <!-- Images -->
+                <div class="product-gallery">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Classic Watch" style="width: 100%; border-radius: var(--radius-md); margin-bottom: var(--spacing-sm);">
+                    <div class="grid grid-cols-4 gap-sm">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" style="border-radius: var(--radius-sm); cursor: pointer; border: 2px solid var(--primary);">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" style="border-radius: var(--radius-sm); cursor: pointer; opacity: 0.6;">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" style="border-radius: var(--radius-sm); cursor: pointer; opacity: 0.6;">
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="product-details">
+                    <h1 style="font-size: 2.5rem; margin-bottom: var(--spacing-xs);">Classic Leather Watch</h1>
+                    <div class="flex items-center gap-sm" style="margin-bottom: var(--spacing-md);">
+                        <div class="product-rating text-accent" style="font-size: 1.25rem;">★★★★★</div>
+                        <span class="text-muted">(12 Reviews)</span>
+                    </div>
+                    
+                    <div class="price" style="font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: var(--spacing-md);">$129.00</div>
+                    
+                    <p class="text-muted" style="margin-bottom: var(--spacing-lg);">
+                        Elevate your style with this timeless classic. Featuring a genuine leather strap and a precision quartz movement, this watch is the perfect accessory for any occasion. Water-resistant and built to last.
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">Color</label>
+                        <div class="flex gap-sm">
+                            <div style="width: 30px; height: 30px; background: #000; border-radius: 50%; cursor: pointer; border: 2px solid var(--primary);"></div>
+                            <div style="width: 30px; height: 30px; background: #8e5b3e; border-radius: 50%; cursor: pointer;"></div>
+                            <div style="width: 30px; height: 30px; background-color: #C0C0C0; border-radius: 50%; cursor: pointer;"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-md items-center" style="margin-top: var(--spacing-lg);">
+                        <div class="quantity-selector flex" style="border: 1px solid var(--border); border-radius: var(--radius-md);">
+                            <button style="padding: 0.5rem 1rem; border: none; background: transparent; cursor: pointer;">-</button>
+                            <input type="text" value="1" style="width: 40px; text-align: center; border: none; font-weight: 600;">
+                            <button style="padding: 0.5rem 1rem; border: none; background: transparent; cursor: pointer;">+</button>
+                        </div>
+                        <a href="cart.html" class="btn btn-primary" style="flex-grow: 1;">Add to Cart</a>
+                        <button class="btn btn-outline" style="padding: 0.75rem;">❤️</button>
+                    </div>
+
+                    <div style="margin-top: var(--spacing-xl); padding-top: var(--spacing-md); border-top: 1px solid var(--border);">
+                        <div class="flex gap-sm items-center" style="margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.25rem;">🚚</span>
+                            <div>
+                                <strong>Free Delivery</strong>
+                                <p class="text-xs text-muted">Enter your postal code for delivery availability</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-sm items-center">
+                            <span style="font-size: 1.25rem;">↩️</span>
+                            <div>
+                                <strong>Return Delivery</strong>
+                                <p class="text-xs text-muted">Free 30 Days Delivery Returns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="bg-surface" style="padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <h2 class="section-title text-left" style="text-align: left;">Related Products</h2>
+            <div class="grid grid-cols-4">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Running Shoes" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">Footwear</div>
+                        <h3 class="product-title"><a href="#">Running Shoes</a></h3>
+                        <div class="flex justify-between items-center">
+                            <span class="product-price">$89.00</span>
+                            <div class="product-rating">★★★★☆ (8)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1589366181703-a18544d6731e?q=80&w=2070&auto=format&fit=crop" alt="Sunglasses" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title"><a href="#">Aviator Sunglasses</a></h3>
+                        <div class="flex justify-between items-center">
+                            <span class="product-price">$149.00</span>
+                            <div class="product-rating">★★★★☆ (15)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" alt="Leather Jacket" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">Outerwear</div>
+                        <h3 class="product-title"><a href="#">Leather Jacket</a></h3>
+                        <div class="flex justify-between items-center">
+                            <span class="product-price">$199.00</span>
+                            <div class="product-rating">★★★★★ (24)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=2072&auto=format&fit=crop" alt="Watch" class="product-image">
+                    <div class="product-info">
+                        <div class="product-category">Electronics</div>
+                        <h3 class="product-title"><a href="#">Smart Watch</a></h3>
+                        <div class="flex justify-between items-center">
+                            <span class="product-price">$399.00</span>
+                            <div class="product-rating">★★★★★ (42)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>ShopEase</h3>
+                <p>Premium products, effortless shopping.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopEase. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

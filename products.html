@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Shop - ShopEase</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ShopEase</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link active">Shop</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="cart.html" class="btn btn-outline btn-sm">
+                    Cart <span class="cart-count">0</span>
+                </a>
+                <a href="#" class="btn btn-primary btn-sm">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="bg-surface" style="padding: var(--spacing-lg) 0;">
+        <div class="container">
+            <h1 style="font-size: 1.5rem;">All Products</h1>
+            <p class="text-muted text-sm">Home / Shop</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section style="padding: var(--spacing-lg) 0;">
+        <div class="container flex gap-lg" style="align-items: flex-start;">
+            
+            <!-- Sidebar Filters -->
+            <aside class="sidebar" style="width: 250px; flex-shrink: 0;">
+                <div class="filter-group">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><label><input type="checkbox"> Electronics (120)</label></li>
+                        <li><label><input type="checkbox"> Fashion (85)</label></li>
+                        <li><label><input type="checkbox"> Home & Living (45)</label></li>
+                        <li><label><input type="checkbox"> Beauty (32)</label></li>
+                        <li><label><input type="checkbox"> Sports (28)</label></li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Price Range</h3>
+                    <div class="flex gap-sm items-center">
+                        <input type="number" placeholder="Min" class="form-input" style="padding: 0.5rem;">
+                        <span>-</span>
+                        <input type="number" placeholder="Max" class="form-input" style="padding: 0.5rem;">
+                    </div>
+                    <button class="btn btn-outline btn-sm" style="width: 100%; margin-top: var(--spacing-sm);">Apply</button>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Brand</h3>
+                    <ul>
+                        <li><label><input type="checkbox"> Nike</label></li>
+                        <li><label><input type="checkbox"> Samsung</label></li>
+                        <li><label><input type="checkbox"> Apple</label></li>
+                        <li><label><input type="checkbox"> Adidas</label></li>
+                        <li><label><input type="checkbox"> Sony</label></li>
+                    </ul>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Rating</h3>
+                    <ul>
+                        <li><label><input type="checkbox"> ★★★★★ & Up</label></li>
+                        <li><label><input type="checkbox"> ★★★★☆ & Up</label></li>
+                        <li><label><input type="checkbox"> ★★★☆☆ & Up</label></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="products-main" style="flex-grow: 1;">
+                <!-- Sort & View -->
+                <div class="flex justify-between items-center" style="margin-bottom: var(--spacing-md);">
+                    <p class="text-sm text-muted">Showing 1-12 of 86 results</p>
+                    <select class="form-input" style="width: auto;">
+                        <option>Sort by: Popularity</option>
+                        <option>Sort by: Newest</option>
+                        <option>Sort by: Price: Low to High</option>
+                        <option>Sort by: Price: High to Low</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-3">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <span class="badge badge-new" style="position: absolute; top: 10px; left: 10px;">New</span>
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Classic Watch" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Accessories</div>
+                            <h3 class="product-title"><a href="product-detail.html">Classic Watch</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$129.00</span>
+                                <div class="product-rating">★★★★★ (12)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Running Shoes" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Footwear</div>
+                            <h3 class="product-title"><a href="product-detail.html">Running Shoes</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$89.00</span>
+                                <div class="product-rating">★★★★☆ (8)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                         <div class="product-image-wrapper">
+                            <span class="badge badge-sale" style="position: absolute; top: 10px; left: 10px;">-20%</span>
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1936&auto=format&fit=crop" alt="Leather Jacket" class="product-image">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Outerwear</div>
+                            <h3 class="product-title"><a href="product-detail.html">Leather Jacket</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$199.00</span>
+                                <div class="product-rating">★★★★★ (24)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1589366181703-a18544d6731e?q=80&w=2070&auto=format&fit=crop" alt="Sunglasses" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Accessories</div>
+                            <h3 class="product-title"><a href="product-detail.html">Aviator Sunglasses</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$149.00</span>
+                                <div class="product-rating">★★★★☆ (15)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=2072&auto=format&fit=crop" alt="Watch" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">Electronics</div>
+                            <h3 class="product-title"><a href="product-detail.html">Smart Watch Series 5</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$399.00</span>
+                                <div class="product-rating">★★★★★ (42)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Product 6 -->
+                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop" alt="Headphones" class="product-image">
+                        <div class="product-info">
+                             <div class="product-category">Electronics</div>
+                            <h3 class="product-title"><a href="product-detail.html">Noise Cancelling Headphones</a></h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$299.99</span>
+                                <div class="product-rating">★★★★☆ (18)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center gap-sm" style="margin-top: var(--spacing-xl);">
+                    <button class="btn btn-outline btn-sm" disabled>Previous</button>
+                    <button class="btn btn-primary btn-sm">1</button>
+                    <button class="btn btn-outline btn-sm">2</button>
+                    <button class="btn btn-outline btn-sm">3</button>
+                    <button class="btn btn-outline btn-sm">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>ShopEase</h3>
+                <p>Premium products, effortless shopping.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopEase. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
