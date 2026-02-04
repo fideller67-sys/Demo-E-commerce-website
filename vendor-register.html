@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Registration - ShopEase</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ShopEase</a>
+            <div class="nav-links">
+                <span class="text-sm text-muted">Vendor Central</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card" style="max-width: 600px;">
+            <div class="text-center" style="margin-bottom: var(--spacing-lg);">
+                <h2>Become a Seller</h2>
+                <p class="text-muted">Start your business journey with us</p>
+            </div>
+
+            <div class="steps-indicator">
+                <div class="step-dot active" id="dot-1"></div>
+                <div class="step-dot" id="dot-2"></div>
+                <div class="step-dot" id="dot-3"></div>
+            </div>
+
+            <form id="vendorForm" onsubmit="return handleRegister(event)">
+                <!-- Step 1: Account Info -->
+                <div id="step-1" class="step-content fade-in-up">
+                    <div class="form-group">
+                        <label class="form-label" for="fullname">Full Name</label>
+                        <input type="text" id="fullname" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-input" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 100%" onclick="nextStep(2)">Next: Business Profile</button>
+                    <div class="text-center" style="margin-top: var(--spacing-md);">
+                        <span class="text-muted">Already a seller?</span> <a href="login.html" class="text-primary" style="font-weight: 600;">Login</a>
+                    </div>
+                </div>
+
+                <!-- Step 2: Business Profile -->
+                <div id="step-2" class="step-content fade-in-up" style="display: none;">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="prevStep(1)" style="margin-bottom: var(--spacing-md);">← Back</button>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="shopname">Shop Name</label>
+                        <input type="text" id="shopname" class="form-input" required placeholder="e.g. My Awesome Store">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="shopdesc">Shop Description</label>
+                        <textarea id="shopdesc" class="form-input" rows="3" placeholder="Tell us about your store..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Product Categories</label>
+                        <p class="text-xs text-muted" style="margin-bottom: 0.5rem;">Select all that apply</p>
+                        <div class="category-pills" id="categorySelection">
+                            <span class="category-pill" onclick="toggleCategory(this, 'Electronics')">Electronics</span>
+                            <span class="category-pill" onclick="toggleCategory(this, 'Fashion')">Fashion</span>
+                            <span class="category-pill" onclick="toggleCategory(this, 'Home & Living')">Home & Living</span>
+                            <span class="category-pill" onclick="toggleCategory(this, 'Beauty')">Beauty</span>
+                            <span class="category-pill" onclick="toggleCategory(this, 'Sports')">Sports</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" style="width: 100%" onclick="nextStep(3)">Next: Verification</button>
+                </div>
+
+                <!-- Step 3: Documents -->
+                <div id="step-3" class="step-content fade-in-up" style="display: none;">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="prevStep(2)" style="margin-bottom: var(--spacing-md);">← Back</button>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Business Registration</label>
+                        <div class="file-upload-zone" onclick="document.getElementById('doc-reg').click()">
+                            <div class="file-upload-icon">📄</div>
+                            <p>Click to upload Certificate</p>
+                            <span class="text-xs text-muted">PDF or JPG up to 5MB</span>
+                        </div>
+                        <input type="file" id="doc-reg" class="sr-only" onchange="handleFileSelect(this, 'reg-preview')">
+                        <div id="reg-preview" class="doc-item" style="display: none; margin-top: 0.5rem;"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tax ID / TIN</label>
+                        <input type="text" class="form-input" placeholder="Enter Tax Identification Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">ID Verification</label>
+                        <div class="file-upload-zone" onclick="document.getElementById('doc-id').click()">
+                            <div class="file-upload-icon">🆔</div>
+                            <p>Upload National ID / Passport</p>
+                        </div>
+                        <input type="file" id="doc-id" class="sr-only" onchange="handleFileSelect(this, 'id-preview')">
+                        <div id="id-preview" class="doc-item" style="display: none; margin-top: 0.5rem;"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Submit & Create Store</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        
+        function nextStep(step) {
+            // Simple validation could go here
+            if (step === 2) {
+                const name = document.getElementById('fullname').value;
+                if (!name) return alert('Please enter your name');
+            }
+            
+            showStep(step);
+        }
+
+        function prevStep(step) {
+            showStep(step);
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
+            // Show target step
+            document.getElementById(`step-${step}`).style.display = 'block';
+            
+            // Update dots
+            document.querySelectorAll('.step-dot').forEach((el, index) => {
+                if (index + 1 === step) el.classList.add('active');
+                else el.classList.remove('active');
+            });
+
+            currentStep = step;
+        }
+
+        function toggleCategory(element, category) {
+            element.classList.toggle('selected');
+        }
+
+        function handleFileSelect(input, previewId) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                const previewEl = document.getElementById(previewId);
+                previewEl.style.display = 'flex';
+                previewEl.innerHTML = `
+                    <span class="doc-name">${file.name}</span>
+                    <span class="doc-status text-success">✓ Selected</span>
+                `;
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            // Simulate API call
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Creating Account...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Save dummy state (optional)
+                localStorage.setItem('vendorStatus', 'pending');
+                window.location.href = 'vendor-onboarding.html';
+            }, 1500);
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

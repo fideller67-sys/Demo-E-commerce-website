@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Access - ShopEase</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">ShopEase</a>
+            <div class="nav-links">
+                <div class="flex items-center gap-sm">
+                    <div style="width: 32px; height: 32px; background: var(--bg-surface); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 1.2rem;">🏪</span>
+                    </div>
+                    <span class="text-sm" style="font-weight: 600;">My Store</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: var(--spacing-xl) var(--spacing-sm);">
+        <!-- Welcome Banner -->
+        <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-xl);">
+            <h1 style="color: white; margin-bottom: var(--spacing-xs);">Welcome to ShopEase!</h1>
+            <p style="opacity: 0.9; margin-bottom: var(--spacing-lg);">Let's get your store ready for customers. Complete these steps to start selling.</p>
+            
+            <div class="flex justify-between items-center" style="margin-bottom: var(--spacing-xs);">
+                <span class="text-sm" style="font-weight: 600;">Setup Progress</span>
+                <span class="text-sm" id="progress-text">0% Completed</span>
+            </div>
+            <div class="progress-bar-bg" style="background: rgba(255,255,255,0.2); height: 8px; border-radius: var(--radius-full); overflow: hidden;">
+                <div class="progress-bar" id="main-progress" style="width: 0%; background: white;"></div>
+            </div>
+        </div>
+
+        <!-- Alert Banner -->
+        <div style="background: #fff7ed; border: 1px solid #fed7aa; padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-xl); display: flex; gap: var(--spacing-md); align-items: flex-start;">
+            <span style="font-size: 1.5rem;">ℹ️</span>
+            <div>
+                <h3 style="color: #9a3412; font-size: 1rem; margin-bottom: 0.25rem;">Account Verification Pending</h3>
+                <p class="text-sm" style="color: #9a3412;">We are reviewing your submitted documents. You can continue setting up your store in the meantime.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="text-align: left; font-size: 1.5rem;">Onboarding Checklist</h2>
+        
+        <div class="checklist-grid">
+            <!-- Step 1 -->
+            <div class="checklist-card completed" onclick="openModal('profile')">
+                <div class="checklist-icon">✓</div>
+                <div>
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Business Profile</h3>
+                    <p class="text-sm text-muted">Basic verification details submitted</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="checklist-card" id="card-shipping" onclick="openModal('shipping')">
+                <div class="checklist-icon">📦</div>
+                <div>
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Shipping Settings</h3>
+                    <p class="text-sm text-muted">Configure delivery regions & rates</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="checklist-card" id="card-payment" onclick="openModal('payment')">
+                <div class="checklist-icon">💳</div>
+                <div>
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Payment Details</h3>
+                    <p class="text-sm text-muted">Link bank account or mobile money</p>
+                </div>
+            </div>
+             <!-- Step 4 -->
+            <div class="checklist-card" id="card-products" onclick="alert('Please complete shipping and payment setup first.')">
+                <div class="checklist-icon">🛍️</div>
+                <div>
+                    <h3 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Add First Product</h3>
+                    <p class="text-sm text-muted">List your items for sale</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals (Simplified as fixed overlays) -->
+    <div id="modal-shipping" class="modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: var(--radius-lg); width: 90%; max-width: 500px;">
+            <h3>Configure Shipping</h3>
+            <p class="text-sm text-muted" style="margin-bottom: 1.5rem;">Select your preferred shipping partners</p>
+            
+            <form onsubmit="completeStep(event, 'shipping')">
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" checked> Standard Delivery (ShopEase Logistics)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox"> Self-Fulfillment
+                    </label>
+                </div>
+                <div class="flex gap-sm justify-between">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('shipping')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Settings</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-payment" class="modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: var(--radius-lg); width: 90%; max-width: 500px;">
+            <h3>Payment Setup</h3>
+            <p class="text-sm text-muted" style="margin-bottom: 1.5rem;">Where should we send your payouts?</p>
+            
+            <form onsubmit="completeStep(event, 'payment')">
+                <div class="form-group">
+                    <label class="form-label">Bank Name</label>
+                    <select class="form-input">
+                        <option>Select Bank...</option>
+                        <option>Equity Bank</option>
+                        <option>KCB Application</option>
+                        <option>Co-operative Bank</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label class="form-label">Account Number</label>
+                    <input type="text" class="form-input" placeholder="0000 0000 0000">
+                </div>
+                 <div class="form-group">
+                    <label class="form-label">M-Pesa Number (Optional)</label>
+                    <input type="text" class="form-input" placeholder="07...">
+                </div>
+
+                <div class="flex gap-sm justify-between">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('payment')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Details</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check local storage for initial state
+        document.addEventListener('DOMContentLoaded', () => {
+           updateProgress();
+        });
+
+        function openModal(id) {
+            if (id === 'profile') return; // Read only
+            const modal = document.getElementById(`modal-${id}`);
+            if(modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function closeModal(id) {
+            document.getElementById(`modal-${id}`).style.display = 'none';
+        }
+
+        function completeStep(e, id) {
+            e.preventDefault();
+            localStorage.setItem(`vendor_step_${id}`, 'true');
+            
+            const card = document.getElementById(`card-${id}`);
+            card.classList.add('completed');
+            card.querySelector('.checklist-icon').textContent = '✓';
+            
+            closeModal(id);
+            updateProgress();
+        }
+
+        function updateProgress() {
+            let completed = 1; // Profile starts completed
+            if (localStorage.getItem('vendor_step_shipping')) completed++;
+            if (localStorage.getItem('vendor_step_payment')) completed++;
+            
+            // Check DOM classes for persistence
+            if(localStorage.getItem('vendor_step_shipping')) {
+                 const card = document.getElementById('card-shipping');
+                 card.classList.add('completed');
+                 card.querySelector('.checklist-icon').textContent = '✓';
+            }
+             if(localStorage.getItem('vendor_step_payment')) {
+                 const card = document.getElementById('card-payment');
+                 card.classList.add('completed');
+                 card.querySelector('.checklist-icon').textContent = '✓';
+            }
+
+            const total = 4; // Including product
+            const percent = (completed / total) * 100;
+            
+            document.getElementById('main-progress').style.width = `${percent}%`;
+            document.getElementById('progress-text').innerText = `${Math.round(percent)}% Completed`;
+
+            if (completed >= 3) {
+                 const card = document.getElementById('card-products');
+                 card.onclick = function() { window.location.href = 'products.html?vendor=true'; };
+                 card.querySelector('.text-muted').textContent = 'Ready to add products!';
+            }
+        }
+    </script>
+</body>
+</html>

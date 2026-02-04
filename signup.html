@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Order Confirmed - ShopEase</title>
+    <title>Sign Up - ShopEase</title>
 </head>
 <body>
     <!-- Navigation -->
@@ -21,22 +21,46 @@
                 <a href="cart.html" class="btn btn-outline btn-sm">
                     Cart <span class="cart-count">0</span>
                 </a>
-                <a href="#" class="btn btn-primary btn-sm">Login</a>
+                <a href="login.html" class="btn btn-primary btn-sm">Login</a>
             </div>
         </div>
     </nav>
 
-    <!-- Content -->
-    <section style="padding: 4rem 0; text-align: center; min-height: 60vh; display: flex; align-items: center;">
-        <div class="container">
-            <div style="background-color: var(--success); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: 0 auto var(--spacing-md);">✓</div>
-            <h1 style="font-size: 2.5rem; margin-bottom: var(--spacing-sm);">Thank You for Your Order!</h1>
-            <p class="text-muted" style="font-size: 1.125rem; margin-bottom: var(--spacing-lg);">Your order <strong>#ORDER-24589</strong> has been placed successfully.</p>
-            <p class="text-muted" style="max-width: 500px; margin: 0 auto var(--spacing-xl);">We've sent a confirmation email to your inbox. We'll notify you when your items are on their way.</p>
+    <!-- Sign Up Section -->
+    <div class="auth-container">
+        <div class="auth-card fade-in-up">
+            <h2 class="text-center" style="margin-bottom: var(--spacing-md);">Create Account</h2>
+            <p class="text-center text-muted" style="margin-bottom: var(--spacing-lg);">Sign up to get started</p>
             
-            <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirm-password" class="form-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+            </form>
+
+            <div class="text-center" style="margin-top: var(--spacing-md);">
+                <p class="text-sm text-muted">Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 600;">Login</a></p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
