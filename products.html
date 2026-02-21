@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Shop - ShopEase</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='40' fill='%232563eb'%3ESE%3C/text%3E%3C/svg%3E">
 </head>
 <body>
     <!-- Navigation -->
@@ -143,7 +144,7 @@
 
                     <!-- Product 4 -->
                     <div class="product-card">
-                        <img src="images/sunglasses.png" alt="Sunglasses" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=2080&auto=format&fit=crop" alt="Sunglasses" class="product-image">
                         <div class="product-info">
                             <div class="product-category">Accessories</div>
                             <h3 class="product-title"><a href="product-detail.html">Aviator Sunglasses</a></h3>
@@ -227,5 +228,184 @@
             <p>&copy; 2026 ShopEase. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Add Product Modal -->
+    <div id="modal-add-product" class="modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: var(--radius-lg); width: 90%; max-width: 500px;">
+            <h3>Add New Product</h3>
+            <p class="text-sm text-muted" style="margin-bottom: 1.5rem;">List a new item in your store</p>
+            
+            <form id="add-product-form" onsubmit="handleAddProduct(event)">
+                <div class="form-group">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" name="name" class="form-input" required placeholder="e.g. Vintage Camera">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select name="category" class="form-input">
+                        <option value="Electronics">Electronics</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Home">Home & Living</option>
+                        <option value="Beauty">Beauty</option>
+                        <option value="Sports">Sports</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-sm">
+                    <div class="form-group">
+                        <label class="form-label">Price ($)</label>
+                        <input type="number" name="price" class="form-input" required min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Stock</label>
+                        <input type="number" name="stock" class="form-input" required min="1" placeholder="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Image URL</label>
+                    <input type="url" name="image" class="form-input" required placeholder="https://...">
+                    <p class="text-xs text-muted">Use an Unsplash URL for now</p>
+                </div>
+
+                <div class="flex gap-sm justify-between" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-outline" onclick="closeAddModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vendor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isVendor = urlParams.get('vendor') === 'true';
+
+            if (isVendor) {
+                enableVendorView();
+            }
+
+            // Always load custom products to grid if not vendor view (optional, but good for persistence demo)
+             // For now, focusing on Vendor View as per plan
+        });
+
+        function enableVendorView() {
+            // 1. Update Header
+            document.querySelector('h1').textContent = 'My Store Dashboard';
+            document.querySelector('.text-muted.text-sm').textContent = 'Home / Vendor / My Products';
+
+            // 2. Hide Sidebar & Adjust Layout
+            const sidebar = document.querySelector('.sidebar');
+            if(sidebar) sidebar.style.display = 'none';
+            
+            // 3. Add "Add Product" Button
+            const actionArea = document.querySelector('.products-main .flex.justify-between');
+            
+            // Clear existing sort (simplified for vendor view)
+            actionArea.innerHTML = `
+                <p class="text-sm text-muted" id="vendor-count">0 Products Listed</p>
+                <button class="btn btn-primary btn-sm" onclick="openAddModal()">+ Add New Product</button>
+            `;
+
+            // 4. Render Vendor Products
+            renderVendorProducts();
+        }
+
+        function renderVendorProducts() {
+            const grid = document.querySelector('.grid.grid-cols-3');
+            grid.innerHTML = ''; // Clear default products
+
+            const products = getVendorProducts();
+
+            if (products.length === 0) {
+                grid.parentElement.innerHTML += `
+                    <div id="empty-state" class="text-center" style="grid-column: 1 / -1; padding: 4rem 1rem;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">📦</span>
+                        <h3>No products yet</h3>
+                        <p class="text-muted">Start adding products to your store to see them here.</p>
+                        <button class="btn btn-primary" onclick="openAddModal()" style="margin-top: 1rem;">Add Your First Product</button>
+                    </div>
+                `;
+                // Hide the grid container to remove whitespace if needed, but innerHTML clearing is usually enough
+                // Restoring the action area count
+                 document.getElementById('vendor-count').textContent = '0 Products Listed';
+            } else {
+                // Remove empty state if exists
+                const empty = document.getElementById('empty-state');
+                if(empty) empty.remove();
+
+                document.getElementById('vendor-count').textContent = `${products.length} Products Listed`;
+
+                products.forEach((p, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <div class="product-image-wrapper">
+                             <img src="${p.image}" alt="${p.name}" class="product-image">
+                             <button onclick="deleteProduct(${index})" style="position: absolute; top: 10px; right: 10px; background: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; color: red;">🗑</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${p.category}</div>
+                            <h3 class="product-title">${p.name}</h3>
+                            <div class="flex justify-between items-center">
+                                <span class="product-price">$${p.price}</span>
+                                <span class="text-xs text-muted">Stock: ${p.stock}</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        function getVendorProducts() {
+            const stored = localStorage.getItem('vendor_products');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function handleAddProduct(e) {
+            e.preventDefault();
+            const form = e.target;
+            
+            const newProduct = {
+                name: form.name.value,
+                category: form.category.value,
+                price: form.price.value,
+                stock: form.stock.value,
+                image: form.image.value,
+                date: new Date().toISOString()
+            };
+
+            const products = getVendorProducts();
+            products.unshift(newProduct); // Add to top
+            
+            localStorage.setItem('vendor_products', JSON.stringify(products));
+            
+            closeAddModal();
+            form.reset();
+            renderVendorProducts(); // Re-render
+            
+            // Show success (simple alert for now)
+            // alert('Product added successfully!');
+        }
+
+        function deleteProduct(index) {
+            if(confirm('Are you sure you want to remove this product?')) {
+                const products = getVendorProducts();
+                products.splice(index, 1);
+                localStorage.setItem('vendor_products', JSON.stringify(products));
+                renderVendorProducts();
+            }
+        }
+
+        function openAddModal() {
+            document.getElementById('modal-add-product').style.display = 'flex';
+        }
+
+        function closeAddModal() {
+            document.getElementById('modal-add-product').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

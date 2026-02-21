@@ -498,6 +498,11 @@ section {
         font-size: 2.25rem;
     }
 
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .hero .btn {
         padding: 0.6rem 1.2rem;
         /* Smaller button on tablet/mobile */
@@ -505,6 +510,8 @@ section {
         width: 100%;
         /* Full width button on mobile for better touch target */
         max-width: 300px;
+        margin: 0 auto;
+        /* Center button */
     }
 
     /* Grid Adjustments */

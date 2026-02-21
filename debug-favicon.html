@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Debug</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        body { font-family: sans-serif; padding: 2rem; background: #eee; }
+        .icon-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: center;
+            margin: 1rem;
+        }
+        img { width: 128px; height: 128px; border: 1px dashed #ccc; }
+        .dark { background: #333; color: white; }
+        .dark .icon-box { background: #222; }
+    </style>
+</head>
+<body>
+    <h1>Favicon Debug</h1>
+    
+    <div class="icon-box">
+        <h3>Light Background</h3>
+        <img src="favicon.svg" alt="Favicon">
+    </div>
+
+    <div class="icon-box dark">
+        <h3>Dark Background</h3>
+        <img src="favicon.svg" alt="Favicon">
+    </div>
+
+    <p>If you see the "SE" logo above, the SVG is valid. If not, the SVG code is broken.</p>
+    <p>If you see it here but not in the tab, try refreshing the page (Ctrl+R / Cmd+R) or clearing cache.</p>
+    <p><a href="index.html">Back to Home</a></p>
+</body>
+</html>
